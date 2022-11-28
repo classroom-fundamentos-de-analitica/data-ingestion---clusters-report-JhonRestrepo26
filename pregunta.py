@@ -18,7 +18,7 @@ def ingest_data():
     # Inserte su código aquí
     df=pd.DataFrame()
     #Lectura
-    with open('/tmp/clusters_report.txt','r') as files:
+    with open('clusters_report.txt','r') as files:
         datico=[line for line in files]
     body=datico[4:] #Eliminando filas 'innecesarias'
     
