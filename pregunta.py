@@ -22,7 +22,8 @@ def ingest_data():
         datico=[line for line in files]
     body=datico[4:] #Eliminando filas 'innecesarias'
     
-    body='\n'.join(body).split('\n\n\n\n')  #Patrón identificado, clusters como registros (elementos de lista)
+    body='\n'.join(body).replace('                                         ','').split('\n\n\n\n')  
+    #Patrón identificado, clusters como registros (elementos de lista), (espacio del replace troll...)
     
     dic={'cluster':[],'cantidad_de_palabras_clave':[], 'porcentaje_de_palabras_clave':[],'principales_palabras_clave':[]} #Simplificación nombres de col
 
