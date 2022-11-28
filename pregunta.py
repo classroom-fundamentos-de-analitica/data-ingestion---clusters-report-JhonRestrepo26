@@ -47,7 +47,7 @@ def ingest_data():
           c1.append(int(clus))
           c2.append(int(qua))
           c3.append(float(perc.replace(',','.')))
-          mwk=i[40:].strip().replace('\n', ' ').replace('    ', ' ').replace('   ', ' ').replace('   ', ' ') #Sobre simplificación del problema de espacios :/
+          mwk=i[40:].strip().replace('\n', '').replace('    ', ' ').replace('   ', ' ').replace('   ', ' ') #Sobre simplificación del problema de espacios :/
           if mwk[-1]=='.':                                                              #Ayuda a quitar ese punto molesto del texto del último cluster...
             c4.append(mwk[:-1].replace('/s*',' '))
           else:
