@@ -46,9 +46,9 @@ def ingest_data():
           dic['porcentaje_de_palabras_clave'].append(float(perc.replace(',','.')))
           mwk=i[40:].strip()
           if mwk[-1]=='.':                                                              #Ayuda a quitar ese punto molesto del texto del último cluster...
-            dic['principales_palabras_clave'].append(mwk[:-1])
+            dic['principales_palabras_clave'].append(mwk[:-1].replace('/s*',' '))
           else:
-            dic['principales_palabras_clave'].append(mwk)
+            dic['principales_palabras_clave'].append(mwk.replace('/s*',' '))
     
     df=pd.DataFrame(dic)    #'Hack' #2
     
