@@ -48,7 +48,7 @@ def ingest_data():
           if mwk[-1]=='.':                                                              #Ayuda a quitar ese punto molesto del texto del último cluster...
             dic['principales_palabras_clave'].append(mwk[:-1])
           else:
-            dic['principales_palabras_clave'].append(mwk[40:])
+            dic['principales_palabras_clave'].append(mwk)
     
     df=pd.DataFrame(dic)    #'Hack' #2
     
