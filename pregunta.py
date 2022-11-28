@@ -16,7 +16,7 @@ def ingest_data():
 
     #
     # Inserte su código aquí
-    df=pd.DataFrame()
+    #
     #Lectura
     with open('clusters_report.txt','r') as files:
         datico=[line for line in files]
@@ -25,7 +25,10 @@ def ingest_data():
     body='\n'.join(body).replace('                                         ','').split('\n\n\n\n')  
     #Patrón identificado, clusters como registros (elementos de lista), (espacio del replace troll...)
     
-    dic={'cluster':[],'cantidad_de_palabras_clave':[], 'porcentaje_de_palabras_clave':[],'principales_palabras_clave':[]} #Simplificación nombres de col
+    c1=[]
+    c2=[]
+    c3=[]
+    c4=[]
 
     #'Hack':
     
@@ -41,15 +44,15 @@ def ingest_data():
         if i[j+25] != ' ':
           perc+=i[j+25]  
         if j==3:
-          dic['cluster'].append(int(clus))
-          dic['cantidad_de_palabras_clave'].append(int(qua))
-          dic['porcentaje_de_palabras_clave'].append(float(perc.replace(',','.')))
+          c1.append(int(clus))
+          c2.append(int(qua))
+          c3.append(float(perc.replace(',','.')))
           mwk=i[40:].strip()
           if mwk[-1]=='.':                                                              #Ayuda a quitar ese punto molesto del texto del último cluster...
-            dic['principales_palabras_clave'].append(mwk[:-1].replace('/s*',' '))
+            c4.append(mwk[:-1].replace('/s*',' '))
           else:
-            dic['principales_palabras_clave'].append(mwk.replace('/s*',' '))
-    
-    df=pd.DataFrame(dic)    #'Hack' #2
+            c4.append(mwk.replace('/s*',' '))
+        
+    df=pd.DataFrame({'cluster':c1,'cantidad_de_palabras_clave':c2, 'porcentaje_de_palabras_clave':c3,'principales_palabras_clave':c4})    #'Hack' #2
     
     return df
