@@ -24,7 +24,7 @@ def ingest_data():
     
     body='\n'.join(body).split('\n\n\n\n')  #Patrón identificado, clusters como registros (elementos de lista)
     
-    dic={'cluster':[],'cantidad_de_palabras_claves':[], 'porcentaje_de_palabras_claves':[],'principales_palabras_clave':[]} #Simplificación nombres de col
+    dic={'cluster':[],'cantidad_de_palabras_clave':[], 'porcentaje_de_palabras_clave':[],'principales_palabras_clave':[]} #Simplificación nombres de col
 
     #'Hack':
     
@@ -41,8 +41,8 @@ def ingest_data():
           perc+=i[j+25]  
         if j==3:
           dic['cluster'].append(int(clus))
-          dic['cantidad_de_palabras_claves'].append(int(qua))
-          dic['porcentaje_de_palabras_claves'].append(float(perc.replace(',','.')))
+          dic['cantidad_de_palabras_clave'].append(int(qua))
+          dic['porcentaje_de_palabras_clave'].append(float(perc.replace(',','.')))
           dic['principales_palabras_clave'].append(i[40:])
     
     df=pd.DataFrame(dic)    #'Hack' #2
